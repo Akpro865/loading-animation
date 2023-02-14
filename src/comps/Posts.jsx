@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Post from './Post'
 
 export default function Posts(){
  const [category, setCategory] = useState(null)
+
+ const navigate = useNavigate()
  
  useEffect(()=>{
   const getData = async()=>{
@@ -40,6 +43,7 @@ export default function Posts(){
    	
    }
   </section>
+  <span onClick={()=>navigate('/lazy')} className='py-8 bg-green-500 rounded-[7px] py-2 my-2 px-5 flex cursor-pointer justify-center'>Lazy load</span>
   </>
  )
 }
